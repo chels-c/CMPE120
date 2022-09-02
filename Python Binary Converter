@@ -1,0 +1,43 @@
+def nibble_to_ascii(nibble: int) -> str:
+  """
+  This is a comment
+  Input: Nibble (4-bits)
+  Output: Single character Binary as a string
+    Remainder is either 0 or 1
+  """
+  table = ['0','1']
+  return table[nibble]
+
+
+def to_bin(number: int) -> str:
+    """
+    This is a comment
+    Input: Number (integer)
+    Output: String
+    Example: Input = 123, Output = "0b1111011"
+    """
+    answer = ""
+    
+    # Forever loop
+    while True:
+        # Integer divide using the // operator
+        quotient = number // 2
+        # Get the remainder using the % operator
+        remainder = number % 2
+        
+        # Accumulate result
+        answer = nibble_to_ascii(remainder) + answer
+
+        # Set the number we need to use for next time
+        number = quotient
+        
+        # We break the "loop" when division turns to zero
+        if (quotient == 0):
+            break
+    
+    return "0b" + answer
+
+
+print(to_bin(5))
+print(to_bin(64))
+print(to_bin(123))
