@@ -17,9 +17,10 @@ def to_bin(number: int) -> str:
     Example: Input = 123, Output = "0b1111011"
     """
     answer = ""
+    divide = True
     
     # Forever loop
-    while True:
+    while divide:
         # Integer divide using the // operator
         quotient = number // 2
         # Get the remainder using the % operator
@@ -33,7 +34,7 @@ def to_bin(number: int) -> str:
         
         # We break the "loop" when division turns to zero
         if (quotient == 0):
-            break
+            divide = False
     
     return "0b" + answer
 
